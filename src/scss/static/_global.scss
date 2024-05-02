@@ -36,6 +36,7 @@ h3,
 h4,
 h5 {
   font-family: $BenzinRegular, sans-serif;
+  word-break: normal;
 }
 
 h2 {
@@ -141,7 +142,7 @@ a {
 
 .swiper-pagination {
   top: auto !important;
-  bottom: -10px !important;
+  bottom: -30px !important;
 }
 
 .swiper-pagination-bullet {

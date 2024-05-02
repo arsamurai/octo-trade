@@ -6,6 +6,7 @@
   top: 0;
   right: 0;
   left: 0;
+  position: fixed;
   transition: $transition;
 
   .header__inner {
@@ -25,24 +26,15 @@
     display: none;
   }
 
-  &.transform {
-    transform: translateY(-100%);
-  }
-
-  &.active {
-    transform: translateY(0);
-    position: fixed;
-  }
-
   @include desktop {
     .header__logo {
       margin: 0 47px 0 59px;
     }
 
-		.header__logo svg {
-			width: 70px;
+    .header__logo svg {
+      width: 70px;
       height: 74px;
-		}
+    }
 
     .menu--mobile {
       display: none;

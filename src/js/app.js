@@ -6,42 +6,6 @@ addEventListener('load', async () => {
   // AOS
   AOS.init(aosConfig);
 
-  // Header
-  const headerContainer = document.getElementById('header');
-
-  const callbackHeader = (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        headerContainer.classList.add('transform');
-      } else {
-        headerContainer.classList.remove('transform');
-      }
-    });
-  };
-
-  const callbackHeaderAnchor = (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        headerContainer.classList.add('active');
-      } else {
-        headerContainer.classList.remove('active');
-      }
-    });
-  };
-
-  let observerHeader = new IntersectionObserver(callbackHeader, {
-    rootMargin: '0px',
-    threshold: 0
-  });
-
-  let observerHeaderAnchor = new IntersectionObserver(callbackHeaderAnchor, {
-    rootMargin: '0px',
-    threshold: 0
-  });
-
-  observerHeader.observe(document.getElementById('headerAnchorHide'));
-  observerHeaderAnchor.observe(document.getElementById('headerAnchorActive'));
-
   // Navigation
   const burger = document.querySelector('[data-burger-btn]');
   const menu = document.querySelector('[data-menu]');
