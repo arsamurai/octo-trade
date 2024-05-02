@@ -1,0 +1,9 @@
+mixin advantagesItem(item, index)
+	li.advantages-item(class= index==0 && 'first')(class= index==2 && 'third')
+		+rectangle1Mobile.advantages-item__bg.advantages-item__bg--mobile
+		+rectangle1.advantages-item__bg.advantages-item__bg--desktop
+		span.advantages-item__num= item.number
+		.advantages-item__info 
+			h3.advantages-item__title= item.title
+			p.advantages-item__text= item.text 
+		+image(item.img, 'advantages-img').advantages-item__img

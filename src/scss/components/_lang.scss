@@ -1,0 +1,26 @@
+.lang {
+	margin-right: 45px;
+	@include flex();
+	white-space: nowrap;
+
+	&__item {
+		font-family: $HelveticaNeueRegular, sans-serif;
+		font-size: 12px;
+		line-height: 47px;
+		color: #383838;
+
+		&.active {
+			color: $white;
+		}
+	}
+
+	.splitter {
+		color: #383838;
+		margin: 0 5px;
+	}
+
+	@include desktop {
+		margin-left: 45px;
+		margin-right: 0;
+	}
+}

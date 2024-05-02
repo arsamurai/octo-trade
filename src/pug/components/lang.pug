@@ -1,0 +1,6 @@
+
+mixin lang(lang)
+	.lang
+		a(href="/").lang__item(class= lang=='ru' && 'active') RU 
+		.splitter |
+		a(href="/en.html").lang__item(class= lang=='en' && 'active') EN

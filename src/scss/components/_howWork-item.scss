@@ -1,0 +1,149 @@
+.howWork-item {
+  width: 320px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 53px;
+  
+  &.en-item {
+    margin-bottom: 84px;
+  }
+
+  &__main {
+    margin-left: 10px;
+  }
+
+  &__num {
+    word-break: normal;
+    margin-left: 10px;
+  }
+
+  &__title {
+    max-width: 215px;
+    width: 100%;
+    margin-bottom: 8px;
+    word-break: normal;
+  }
+
+  &__text {
+    color: rgba(255, 255, 255, 0.44);
+    max-width: 230px;
+    width: 100%;
+  }
+
+  .arrow {
+    order: -1;
+
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  @media screen and (min-width: 380px) {
+    &__num {
+      margin-left: 19px;
+    }
+    &__main {
+      margin-left: 20px;
+    }
+  }
+
+  @include tablet-sm {
+    width: 434px;
+    margin-bottom: 115px;
+
+    &.en-item {
+      margin-bottom: 120px;
+    }
+
+    &__title {
+      max-width: 447px;
+      margin-bottom: 14px;
+    }
+
+    &__num {
+      margin-left: 24px;
+    }
+
+    &__text {
+      max-width: 322px;
+    }
+  }
+
+  @include tablet {
+    margin-bottom: 100px;
+
+		.arrow {
+      margin-top: 7px;
+    }
+  }
+
+  @include desktop {
+    justify-content: space-between;
+    margin-bottom: 80px;
+
+    &.en-item {
+      margin-bottom: 105px;
+    }
+  }
+
+  @media screen and (min-width: 1300px) {
+    margin-bottom: 0;
+
+    &.en-item {
+      margin-bottom: 0;
+    }
+
+    &__main {
+      margin: 0 30px 0 20px;
+    }
+
+    &__num {
+      margin-left: 0;
+    }
+
+    .arrow {
+      order: 0;
+
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+
+    &.even {
+      width: 560px;
+      margin-left: auto;
+
+      .howWork-item__num {
+        margin-left: 24px;
+      }
+
+      .howWork-item__main {
+        margin: 0 0 0 20px;
+      }
+
+      .howWork-item__text {
+        max-width: 419px;
+      }
+
+      .arrow {
+        order: -1;
+
+        svg {
+          transform: rotate(0);
+        }
+      }
+    }
+
+    &.second {
+      margin-top: 35px;
+    }
+
+    &.third {
+      margin-top: -45px;
+    }
+    
+    &.en-item.third {
+      margin-top: 35px;
+    }
+  }
+}

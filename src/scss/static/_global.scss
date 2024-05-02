@@ -1,0 +1,153 @@
+html {
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 16px;
+  line-height: 20px;
+  font-family: $SFProDisplay, sans-serif;
+  color: $white;
+  background-color: $black;
+  overflow-x: hidden;
+  word-break: break-word;
+}
+
+section {
+  overflow: hidden;
+}
+
+ol,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $BenzinRegular, sans-serif;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 32px;
+  @include tablet {
+    font-size: 40px;
+    line-height: 42px;
+  }
+  @include desktop {
+    font-size: 48px;
+    line-height: 52px;
+  }
+}
+
+h3 {
+  font-size: 20px;
+  line-height: 24px;
+  @include tablet {
+    font-size: 26px;
+    line-height: 29px;
+  }
+  @include desktop {
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+img {
+  object-fit: cover;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container {
+  max-width: $container;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.btn {
+  display: inline-block;
+  font-family: $HelveticaNeueMedium, sans-serif;
+  font-size: 16px;
+  line-height: 47px;
+  color: $black;
+  background-image: url('../assets/images/btn/btn-bg-solid.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 224px;
+  height: 63px;
+  text-align: center;
+  position: relative;
+
+  &::before {
+    content: '';
+    width: 285px;
+    height: 123px;
+    position: absolute;
+    z-index: -1;
+    bottom: -40px;
+    left: -35px;
+    background-image: url('../assets/images/btn/btn-shadow.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .text {
+    vertical-align: -webkit-baseline-middle;
+    transition: $transition;
+  }
+
+  &.outline {
+    color: $green;
+    background-image: url('../assets/images/btn/btn-bg-outline.svg');
+  }
+
+  &.outline::before {
+    display: none;
+  }
+
+  &:hover .text {
+    font-size: 17px;
+  }
+}
+
+.swiper {
+  overflow: visible;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.swiper-pagination {
+  top: auto !important;
+  bottom: -10px !important;
+}
+
+.swiper-pagination-bullet {
+  background: rgb(57 56 56);
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: $green;
+}

@@ -1,0 +1,120 @@
+.offers-item {
+  padding: 15px 27px 33.5px;
+  position: relative;
+  width: 344px;
+  margin-bottom: 20px;
+
+  &__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+		object-fit: contain;
+  }
+
+  &__bg svg{
+    width: 344px;
+    height: 507px;
+  }
+
+  &__bg--desktop {
+    display: none;
+  }
+
+  &__header {
+    @include flex(space-between, flex-end);
+    margin-bottom: 55px;
+  }
+
+  &__subtext {
+    font-size: 12px;
+    line-height: 16.55px;
+    font-family: $BenzinRegular, sans-serif;
+    color: rgba(93, 93, 93, 0.33);
+  }
+
+  &__lvl {
+    font-family: $BenzinRegular, sans-serif;
+    font-size: 32px;
+    line-height: 44.13px;
+    margin-bottom: -4px;
+  }
+
+  &__profitability {
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  &__profitability-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__percent {
+    white-space: nowrap;
+  }
+
+  &__percent-value {
+    font-family: $BenzinRegular, sans-serif;
+    font-size: 36px;
+    line-height: 49.64px;
+    margin-left: 7px;
+  }
+
+  &__deposit-value {
+    font-family: $BenzinRegular, sans-serif;
+    color: $white;
+  }
+
+  &__shadow {
+    position: absolute;
+    left: -8px;
+    top: 118px;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+  }
+
+  &.second {
+    .offers-item__lvl,
+    .offers-item__percent-value,
+    .offers-item__percent .offers-item__subtext {
+      color: $yellow;
+    }
+  }
+
+  &.third {
+    .offers-item__lvl,
+    .offers-item__percent-value,
+    .offers-item__percent .offers-item__subtext {
+      color: $green;
+    }
+  }
+
+  @include tablet {
+		padding: 14.5px 28.5px 28px 39.5px;
+		width: 396px;
+
+		&__bg svg {
+			width: 396px;
+			height: 509px;
+		}
+
+    &__bg--mobile {
+      display: none;
+    }
+
+    &__bg--desktop {
+      display: block;
+    }
+
+    &__subtext {
+      font-size: 16px;
+      line-height: 22px;
+      color: rgba(255, 255, 255, 0.33);
+    }
+  }
+}

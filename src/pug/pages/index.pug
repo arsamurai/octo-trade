@@ -1,0 +1,157 @@
+extends ../layouts/layout
+include ../helpers/_mixins
+include ../components/about-item
+include ../components/howWork-item
+include ../components/advantages-item
+
+block vars
+  - var title = 'Octo Trade'
+  - var page = 'ru'
+  -
+    var aboutItems = [
+      {number: '10', text: 'человек в симбиозе создали данный уникальный продукт', line: 1},
+      {number: '24', text: 'месяца мы тренировали наш ИИ с лучшими специалистами', line: 2},
+      {number: '5264', text: 'пользователей присоеденились в первые дни запуска проекта', line: 3},
+      {number: '$1 МЛН+', text: 'проинвестировано с помощью OCTO Trade Bot', line: 4},
+    ]
+    var howWorkItems = [
+      {number: '01', title: 'Aнализ Рынка:', text: 'Основываясь на огромном объеме данных, включая цены, объемы торгов и технические показатели, искусственный интеллект Octo.Trade.AI проводит комплексный анализ текущего состояния рынка.'},
+      {number: '02', title: 'Поиск Потенциальных Сделок', text: 'Поиск Потенциальных Сделок: После анализа рынка бот выделяет потенциально прибыльные сделки, определяя оптимальные моменты для входа в рынок. Используя многомерные стратегии, Octo.Trade.AI учитывает различные аспекты рынка для принятия точных решений.'},
+      {number: '03', title: 'Принятие Решений', text: 'Основываясь на огромном объеме данных, включая цены, объемы торгов и технические показатели, искусственный интеллект Octo.Trade.AI проводит комплексный анализ текущего состояния рынка.'},
+      {number: '04', title: 'Автоматическое Открытие и закрытие Сделок:', text: 'Когда оптимальный момент для сделки найден, Octo.Trade.AI автоматически открывает сделку без вашего участия. Это позволяет реагировать на рыночные изменения мгновенно и использовать возможности для максимальной прибыли.'},
+    ]
+    var forWhomItems = [
+      'Фрилансер',
+      'Строитель',
+      'Учитель',
+      'IT специалст',
+      'Инвестор',
+      'Продавец',
+      'Предприниматель',
+      'Трейдер',
+      'Официант',
+      'Администратор'
+    ]
+    var advantagesItems = [
+      {number: '01', title: 'Octo.Trade.AI доступен прямо из мессенджера Telegram', text: 'Это обеспечивает максимальное удобство и доступность для пользователей. Вы можете торговать в любое время и в любом месте, просто подключившись к боту через Telegram.', img: 'advantages/advantages-1.png'},
+      {number: '02', title: 'Управление финансами', text: 'Octo.Trade.AI предоставляет удобные опции для пополнения и вывода средств, что делает торговлю еще более удобной и доступной для пользователей. Вы можете быстро и безопасно управлять своими финансами прямо через бота.', img: 'advantages/advantages-2.png'},
+      {number: '03', title: 'Профессиональная поддержка', text: 'Наши операторы оперативно обрабатывают каждый запрос. Они являются высококвалифицированными специалистами, которые идеально знают наш продукт и являются неотъемлемой частью команды.', img: 'advantages/advantages-3.png'},
+      {number: '04', title: 'Вам не нужно быть трейдером', text: 'Вам всего лишь нужен телеграм для того, чтобы начать. Не потребуется много часов для изучения технических материалов по трейдингу.', img: 'advantages/advantages-4.png'},
+    ]
+    var offersItems = [
+      {lvl: '01 LVL', percent: '20%', deposit: 'от 100 $'},
+      {lvl: '02 LVL', percent: '35%', deposit: 'от 500 $'},
+      {lvl: '03 LVL', percent: '55%', deposit: 'от 1000 $'}
+    ]
+
+append content
+  main#main 
+    // PREVIEW SECTION
+    section#preview
+      .container
+        .preview__inner
+          +image('net.svg', 'net-img').preview__bg-net
+          +image('graph.png', 'graph-img').preview__bg-img
+          +graphLine.preview__bg-line.preview__bg-line--1
+          +graphLine.preview__bg-line.preview__bg-line--2
+          +graphLine.preview__bg-line.preview__bg-line--3
+          +graphLine.preview__bg-line.preview__bg-line--4
+          h1.preview__title(data-aos="fade" data-aos-delay="200")= title
+          #headerAnchorHide
+          p.preview__text(data-aos="fade" data-aos-delay="400") Управляйте финансами с OCTO TRADE Bot. <br /> Автоматизируйте вашу троговлю
+          #headerAnchorActive
+          a(href='#').btn.previw__btn(data-aos="fade" data-aos-delay="600")
+            span.text Перейти к боту →
+    // ABOUT SECTION
+    section#about 
+      .container.about__container
+        .about__inner
+          .about__main(data-aos="fade-right" data-aos-delay="200")
+            h2.about__title О компании OCTO
+            .about__text
+              p Мы создали уникальный, полностью автоматизированный инструмент инвестирования
+              p на базе искусственного <br /> интеллекта.
+            .about__info
+              p С помощью <br /> OCTO Trade Bot <br /> в Telegram, <span class="text-black">вы сможете легко и безопасно получать дивиденды <br /> со сделок на рынке криптовалюты. <span>
+              +columns.about__info-icon
+          +image('octopus.gif', 'octopus-img').about__img(data-aos="fade-up" data-aos-delay="400")
+          ul.about__list(data-aos="fade-left" data-aos-delay="600")
+            +image('about/about-list-bg.svg').about__list-bg
+            each item in aboutItems
+              +aboutItem(item)
+    // HOWWORK SECTION
+    section#howWork 
+      .container 
+        .howWork__inner 
+          h2.howWork__title(data-aos="fade" data-aos-delay="200") Как работает бот?
+          ul.howWork__list(data-aos="fade-up" data-aos-delay="200")
+            +lineMap.howWork__lines.howWork__lines--desktop
+            +lineMapMobile.howWork__lines.howWork__lines--mobile
+            each item, index in howWorkItems
+              +howWorkItem(item, index)
+    // FORWHOM SECTION
+    section#forWhom
+      .container
+        .forWhom__inner 
+          .forWhom__title
+            h2.forWhom__title-question Для Кого?
+            h2.forWhom__title-answer Для Всех.
+          ul.forWhom__list
+            each item, index in forWhomItems
+              li.forWhom__item(data-aos="fade" data-aos-delay= index % 2==0 ? "400" : "200")= item
+          a(href='#').btn.forWhom__btn(data-aos="fade" data-aos-delay="200")
+            span.text Перейти к боту →
+    // ADVANTAGES SECTION
+    section#advantages 
+      .container 
+        .advantages__inner
+          h2.advantages__title(data-aos="fade" data-aos-delay="200") Преимущества
+          .advantages__content--desktop
+            ul.advantages__list(data-aos="fade-up" data-aos-delay="400")
+              each item, index in advantagesItems
+                +advantagesItem(item, index)
+          .advantages__content--mobile
+            .advanges__swiper.swiper(data-aos="fade-up" data-aos-delay="400")
+              .swiper-wrapper
+                each item, index in advantagesItems
+                  .swiper-slide
+                    +advantagesItem(item, index)
+            .advantages__swiper-pagination.swiper-pagination
+    // OFFERS SECTION
+    section#offers 
+      .container.offers__container
+        .offers__inner 
+          h2.offers__title(data-aos="fade" data-aos-delay="200") Инвестиционные предложения
+          ul.offers__list(data-aos="fade-up" data-aos-delay="400")
+            each item, index in offersItems
+              li.offers-item(class= index==0 && 'first')(class= index==1 && 'second')(class= index==2 && 'third')
+                +rectangle2.offers-item__bg.offers-item__bg--desktop
+                +rectangle2Mobile.offers-item__bg.offers-item__bg--mobile
+                if index==0
+                  +image('offers/offers-shadow-1.png').offers-item__shadow
+                else if index==1 
+                  +image('offers/offers-shadow-2.png').offers-item__shadow
+                else
+                  +image('offers/offers-shadow-3.png').offers-item__shadow
+                .offers-item__header 
+                  span.offers-item__subtext Предложение
+                  span.offers-item__lvl= item.lvl
+                .offers-item__profitability
+                  if index==0
+                    +offersCircle1
+                  else if index==1 
+                    +offersCircle2
+                  else
+                    +offersCircle3
+                  .offers-item__profitability-info
+                    .offers-item__subtext Доходность
+                    .offers-item__percent
+                      span.offers-item__subtext до
+                      span.offers-item__percent-value= item.percent
+                      span.offers-item__subtext /день
+                .offers-item__deposit
+                  p.offers-item__subtext Депозит
+                  .offers-item__deposit-value= item.deposit
+          .offers__btn--wrapper(data-aos="fade" data-aos-delay="200")
+            a(href='#').btn.outline.offers__btn
+              span.text Перейти к боту →

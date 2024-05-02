@@ -1,0 +1,135 @@
+#preview {
+  position: relative;
+  margin-top: 90.5px;
+
+  .preview__inner {
+    padding: 137px 0;
+    position: relative;
+    text-align: center;
+    border: 1px solid rgba(56, 56, 56, 1);
+  }
+
+  .preview__bg-img, .preview__bg-net {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .preview__bg-line {
+    position: absolute;
+    z-index: -1;
+  }
+
+  .preview__bg-line svg {
+    height: 321px;
+  }
+
+  .preview__bg-line--1 {
+    left: 5%;
+    bottom: -10%;
+  }
+
+  .preview__bg-line--2 {
+    left: 15%;
+    top: 0;
+  }
+
+  .preview__bg-line--3 {
+    right: 20%;
+    top: -5%;
+  }
+
+  .preview__bg-line--4 {
+    right: 5%;
+    bottom: 0;
+  }
+  
+  .preview__bg-img {
+    mix-blend-mode: color-dodge;
+  }
+
+  .preview__title {
+    font-size: 63px;
+    line-height: 63px;
+    max-width: 537px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 auto;
+		background: linear-gradient(115.17deg, #FFFFFF 63.31%, #00E540 105.52%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+  }
+
+  .preview__text {
+    font-family: $HelveticaNeueRegular, sans-serif;
+    text-align: center;
+    max-width: 421px;
+    margin: 12px auto 109px;
+  }
+
+  @media screen and (min-width: 380px) {
+    .preview__title {
+      font-size: 77.75px;
+      line-height: 77.75px;
+    }
+  }
+
+  @media screen and (min-width: 450px) {
+    .preview__title {
+      font-size: 90px;
+      line-height: 87px;
+    }
+  }
+
+  @include tablet {
+    height: calc(100vh - 111px);
+    max-height: 903px;
+
+    .preview__bg-line svg {
+      height: 573px;
+    }
+
+    .preview__inner {
+      padding: 0;
+      height: calc(100vh - 111px);
+      max-height: 903px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .preview__title {
+      font-size: 149px;
+      line-height: 144px;
+      max-width: 737px;
+    }
+
+    .preview__text {
+      margin: 18px auto 37px;
+    }  
+  }
+
+  @include desktop {
+    margin-top: 111px;
+    .preview__title {
+      font-size: 179px;
+      line-height: 172px;
+      max-width: 937px;
+    }
+  }
+
+  @media screen and (min-width: 1600px) {
+    margin-top: 141px;
+    height: calc(100vh - 141px);
+    max-height: 903px;
+
+    .preview__inner {
+      padding: 0;
+      height: calc(100vh - 141px);
+    }
+  }
+}

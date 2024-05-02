@@ -1,0 +1,25 @@
+include ../helpers/_icons
+include ../components/menu
+include ../components/lang
+
+-
+	var links = [
+		{title: page == 'ru' ? 'О компании' : 'About the company', href: '#about'},
+		{title: page == 'ru' ? 'Как работает Бот?' : 'How the Bot works', href: '#howWork'},
+		{title: page == 'ru' ? 'Для кого подойдет?' : 'Suitable for', href: '#forWhom'},
+		{title: page == 'ru' ? 'Преимущества' : 'Benefits', href: '#advantages'},
+		{title: page == 'ru' ? 'Инвестиционные предложения' : 'Investment offers', href: '#offers'},
+		{title: page == 'ru' ? 'Отзывы': 'Reviews', href: '#reviews'}
+	]
+
+header#header.header
+	.container 
+		.header__inner
+			+menu(links.slice(0, 3)).menu--desktop
+			a(href="/").header__logo
+				+logo.header__logo-img
+			+menu(links.slice(3, 6)).menu--desktop
+			+menu(links)(data-menu).menu--mobile
+			.header__btns
+				+lang(page)
+				include ../components/burger

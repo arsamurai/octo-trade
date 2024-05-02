@@ -1,0 +1,5 @@
+mixin menu(links)
+  nav.menu&attributes(attributes)
+    ul.menu__list
+      each link in links
+        li.menu__list-item(data-scroll-to=link.href)= link.title

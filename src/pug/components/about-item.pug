@@ -1,0 +1,13 @@
+mixin aboutItem(item)
+	li.about-item
+		.about-item__body
+			h5.about-item__num= item.number
+			p.about-item__text= item.text 
+		if item.line == 1
+			+line1.about-item__line
+		else if item.line == 2
+			+line2.about-item__line
+		else if item.line == 3
+			+line3.about-item__line
+		else if item.line == 4
+			+line4.about-item__line

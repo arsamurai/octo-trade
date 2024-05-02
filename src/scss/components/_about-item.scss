@@ -1,0 +1,28 @@
+.about-item  {
+	margin-bottom: 25.5px;
+	width: fit-content;
+
+	&__body {
+		padding-left: 20px;
+	}
+	
+	&__num {
+		font-family: $BenzinMedium, sans-serif;
+		font-size: 64px;
+		line-height: 96px;
+		background: linear-gradient(95.4deg, #67F38F 4.32%, #00E540 156.01%);
+		-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+	}
+	
+	&__text {
+		font-family: $HelveticaNeueRegular, sans-serif;
+		max-width: 246px;
+		width: 100%;
+		margin-bottom: 21.5px;
+	}
+
+	&__line svg {
+		width: 100%;
+	}
+}

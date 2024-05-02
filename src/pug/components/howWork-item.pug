@@ -1,0 +1,7 @@
+mixin howWorkItem(item, index)
+	li.howWork-item(class= index % 2==1 && 'even')(class= index==1 && 'second')(class= index==2 && 'third')(class= page=='en' && 'en-item')
+		h3.howWork-item__num= item.number
+		.howWork-item__main
+			h3.howWork-item__title= item.title
+			p.howWork-item__text= item.text 
+		+arrow

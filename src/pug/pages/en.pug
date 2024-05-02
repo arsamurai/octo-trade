@@ -1,0 +1,157 @@
+extends ../layouts/layout
+include ../helpers/_mixins
+include ../components/about-item
+include ../components/howWork-item
+include ../components/advantages-item
+
+block vars
+  - var title = 'Octo Trade'
+  - var page = 'en'
+  -
+    var aboutItems = [
+      {number: '10', text: 'people in symbiosis created this unique product', line: 1},
+      {number: 'For 24', text: 'months, we trained our AI with top experts', line: 2},
+      {number: '5264', text: 'users joined in the first days of the project launch', line: 3},
+      {number: '$1 МЛН+', text: 'invested with OCTO Trade Bot', line: 4},
+    ]
+    var howWorkItems = [
+      {number: '01', title: 'Market Analysis:', text: 'Based on a huge amount of data including prices, trading volumes and technical indicators, artificial intelligence Octo. Trade.Al performs a comprehensive analysis of the current market conditions.'},
+      {number: '02', title: 'Searching of Potential Deals', text: 'Finding Potential Trades: After analysing the market, the bot highlights potentially profitable trades, identifying the best times to enter the market. Using multidimensional strategies, Octo. Trade.Al takes into account various aspects of the market to make accurate decisions.'},
+      {number: '03', title: 'Decision Making', text: 'Based on a huge amount of data, including prices, trading volumes and technical indicators, the artificial intelligence of Octo.Trade.Al analyses the current state of the market. Octo.Trade.Al performs a comprehensive analysis of the current market condition.'},
+      {number: '04', title: 'Automatic Opening and Closing of Deals:', text: 'When the optimal moment for a trade is found, Octo. Trade.Al automatically opens a trade without your participation. This allows you to react to market changes instantly and take advantage of opportunities to maximise profits.'},
+    ]
+    var forWhomItems = [
+      'A builder',
+      'A teacher',
+      'An IT-specialist',
+      'A salesman',
+      'A waiter',
+      'An administrator',
+      'A trader',
+      'An entrepreneur',
+      'An investor',
+      'A freelancer'
+    ]
+    var advantagesItems = [
+      {number: '01', title: 'Octo.Trade.Al is available directly from Telegram messenger', text: 'This provides maximum convenience and accessibility for users. You can trade anytime and anywhere by simply connecting to the bot via Telegram.', img: 'advantages/advantages-1.png'},
+      {number: '02', title: 'Financial management', text: 'Octo. Trade.Al provides convenient options for deposits and withdrawals, making trading even more convenient and accessible for users. You can quickly and securely manage your finances directly through the Bot.', img: 'advantages/advantages-2.png'},
+      {number: '03', title: 'Professional support', text: 'Our operators handle every enquiry promptly. They are highly qualified specialists who know our product perfectly and are an integral part of the team.', img: 'advantages/advantages-3.png'},
+      {number: '04', title: 'You don\'t need to be a trader', text: 'All you need is a Telegram to get started, You don\'t have to be a trader to get started. You need to spend hours studying technical trading materials.', img: 'advantages/advantages-4.png'},
+    ]
+    var offersItems = [
+      {lvl: '01 LVL', percent: '20%', deposit: 'from 100 $'},
+      {lvl: '02 LVL', percent: '35%', deposit: 'from 500 $'},
+      {lvl: '03 LVL', percent: '55%', deposit: 'from 1000 $'}
+    ]
+
+append content
+  main#main 
+    // PREVIEW SECTION
+    section#preview 
+      .container
+        .preview__inner
+          +image('net.svg', 'net-img').preview__bg-net
+          +image('graph.png', 'graph-img').preview__bg-img
+          +graphLine.preview__bg-line.preview__bg-line--1
+          +graphLine.preview__bg-line.preview__bg-line--2
+          +graphLine.preview__bg-line.preview__bg-line--3
+          +graphLine.preview__bg-line.preview__bg-line--4
+          h1.preview__title(data-aos="fade" data-aos-delay="200")= title
+          #headerAnchorHide
+          p.preview__text(data-aos="fade" data-aos-delay="400") Manage your finances with OCTO TRADE Bot. <br /> Automate your trading
+          #headerAnchorActive
+          a(href='#').btn.previw__btn(data-aos="fade" data-aos-delay="600")
+            span.text Bot →
+    // ABOUT SECTION
+    section#about 
+      .container.about__container
+        .about__inner
+          .about__main(data-aos="fade-right" data-aos-delay="200")
+            h2.about__title About the company OCTO
+            .about__text
+              p We have created a unique, fully automated investment tool
+              p based on artificial <br /> intelligence.
+            .about__info
+              p With the help of <br /> OCTO Trade Bot <br /> в Telegram, <span class="text-black"> you will be able to easily and safely receive dividends<br /> from transactions on the cryptocurrency market. <span>
+              +columns.about__info-icon
+          +image('octopus.gif', 'octopus-img').about__img(data-aos="fade-up" data-aos-delay="400")
+          ul.about__list(data-aos="fade-left" data-aos-delay="600")
+            +image('about/about-list-bg.svg').about__list-bg
+            each item in aboutItems
+              +aboutItem(item)
+    // HOWWORK SECTION
+    section#howWork 
+      .container 
+        .howWork__inner 
+          h2.howWork__title(data-aos="fade" data-aos-delay="200") How the Bot works?
+          ul.howWork__list(data-aos="fade-up" data-aos-delay="200")
+            +lineMap.howWork__lines.howWork__lines--desktop
+            +lineMapMobile.howWork__lines.howWork__lines--mobile
+            each item, index in howWorkItems
+              +howWorkItem(item, index)
+    // FORWHOM SECTION
+    section#forWhom
+      .container
+        .forWhom__inner 
+          .forWhom__title
+            h2.forWhom__title-question For whom?
+            h2.forWhom__title-answer Everyone.
+          ul.forWhom__list
+            each item, index in forWhomItems
+              li.forWhom__item(data-aos="fade" data-aos-delay= index % 2==0 ? "400" : "200")= item
+          a(href='#').btn.forWhom__btn(data-aos="fade" data-aos-delay="200")
+            span.text Go to Bot →
+    // ADVANTAGES SECTION
+    section#advantages 
+      .container 
+        .advantages__inner
+          h2.advantages__title(data-aos="fade" data-aos-delay="200") Преимущества
+          .advantages__content--desktop
+            ul.advantages__list(data-aos="fade-up" data-aos-delay="400")
+              each item, index in advantagesItems
+                +advantagesItem(item, index)
+          .advantages__content--mobile
+            .advanges__swiper.swiper(data-aos="fade-up" data-aos-delay="400")
+              .swiper-wrapper
+                each item, index in advantagesItems
+                  .swiper-slide
+                    +advantagesItem(item, index)
+            .advantages__swiper-pagination.swiper-pagination
+    // OFFERS SECTION
+    section#offers 
+      .container.offers__container
+        .offers__inner 
+          h2.offers__title(data-aos="fade" data-aos-delay="200") Investment proposals
+          ul.offers__list(data-aos="fade-up" data-aos-delay="400")
+            each item, index in offersItems
+              li.offers-item(class= index==0 && 'first')(class= index==1 && 'second')(class= index==2 && 'third')
+                +rectangle2.offers-item__bg.offers-item__bg--desktop
+                +rectangle2Mobile.offers-item__bg.offers-item__bg--mobile
+                if index==0
+                  +image('offers/offers-shadow-1.png').offers-item__shadow
+                else if index==1 
+                  +image('offers/offers-shadow-2.png').offers-item__shadow
+                else
+                  +image('offers/offers-shadow-3.png').offers-item__shadow
+                .offers-item__header 
+                  span.offers-item__subtext Proposal
+                  span.offers-item__lvl= item.lvl
+                .offers-item__profitability
+                  if index==0
+                    +offersCircle1
+                  else if index==1 
+                    +offersCircle2
+                  else
+                    +offersCircle3
+                  .offers-item__profitability-info
+                    .offers-item__subtext Yield up
+                    .offers-item__percent
+                      span.offers-item__subtext to
+                      span.offers-item__percent-value= item.percent
+                      span.offers-item__subtext /day
+                .offers-item__deposit
+                  p.offers-item__subtext Deposit
+                  .offers-item__deposit-value= item.deposit
+          .offers__btn--wrapper(data-aos="fade" data-aos-delay="200")
+            a(href='#').btn.outline.offers__btn
+              span.text Go to Bot →

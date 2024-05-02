@@ -1,0 +1,48 @@
+#advantages {
+  padding-bottom: 110px;
+
+  .advantages__inner {
+    position: relative;
+  }
+
+  .advantages__title {
+    text-align: center;
+    margin-bottom: 57px;
+  }
+
+  .advantages__content--desktop {
+    display: none;
+  }
+
+  @include tablet {
+    padding-bottom: 160px;
+
+    .advantages__title {
+      margin-bottom: 90px;
+    }
+  }
+
+  @include desktop {
+    padding-bottom: 210px;
+
+    .advantages__title {
+      margin-bottom: 118px;
+    }
+  }
+
+  @media screen and (min-width: 1350px) {
+    .advantages__content--mobile {
+      display: none;
+    }
+
+    .advantages__content--desktop {
+      display: block;
+    }
+
+    .advantages__list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+}
