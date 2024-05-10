@@ -52,10 +52,10 @@ append content
         .preview__inner
           +image('net.svg', 'net-img').preview__bg-net
           +image('graph.png', 'graph-img').preview__bg-img
-          +graphLine.preview__bg-line.preview__bg-line--1
-          +graphLine.preview__bg-line.preview__bg-line--2
-          +graphLine.preview__bg-line.preview__bg-line--3
-          +graphLine.preview__bg-line.preview__bg-line--4
+          +graphLine.preview__bg-line.preview__bg-line--1(data-aos="fade" data-aos-delay="600")
+          +graphLine.preview__bg-line.preview__bg-line--2(data-aos="fade" data-aos-delay="1800")
+          +graphLine.preview__bg-line.preview__bg-line--3(data-aos="fade" data-aos-delay="1200")
+          +graphLine.preview__bg-line.preview__bg-line--4(data-aos="fade" data-aos-delay="2400")
           h1.preview__title(data-aos="fade" data-aos-delay="200")= title
           p.preview__text(data-aos="fade" data-aos-delay="400") Manage your finances with OCTO TRADE Bot. <br /> Automate your trading
           a(href='#').btn.previw__btn(data-aos="fade" data-aos-delay="600")
@@ -64,19 +64,19 @@ append content
     section#about 
       .container.about__container
         .about__inner
-          .about__main(data-aos="fade-right" data-aos-delay="200")
-            h2.about__title About the company OCTO
-            .about__text
+          .about__main
+            h2.about__title(data-aos="fade-right" data-aos-delay="200") About the company OCTO
+            .about__text(data-aos="fade-right" data-aos-delay="400")
               p We have created a unique, fully automated investment tool
               p based on artificial <br /> intelligence.
-            .about__info
+            .about__info(data-aos="fade-right" data-aos-delay="600")
               p With the help of <br /> OCTO Trade Bot <br /> в Telegram, <span class="text-black"> you will be able to easily and safely receive dividends<br /> from transactions on the cryptocurrency market. <span>
               +columns.about__info-icon
           +image('octopus.gif', 'octopus-img').about__img(data-aos="fade-up" data-aos-delay="400")
-          ul.about__list(data-aos="fade-left" data-aos-delay="600")
-            +image('about/about-list-bg.svg').about__list-bg
+          ul.about__list
+            +image('about/about-list-bg.svg', 'about-list-bg').about__list-bg
             each item in aboutItems
-              +aboutItem(item)
+              +aboutItem(item, index + 1)
     // HOWWORK SECTION
     section#howWork 
       .container 
@@ -97,19 +97,22 @@ append content
           ul.forWhom__list
             each item, index in forWhomItems
               li.forWhom__item(data-aos="fade" data-aos-delay= index % 2==0 ? "400" : "200")= item
-          a(href='#').btn.forWhom__btn(data-aos="fade" data-aos-delay="200")
-            span.text Go to Bot →
+          .forWhom__btns
+            a(href='#').btn.forWhom__btn(data-aos="fade" data-aos-delay="200")
+              span.text Go to bot →
+            a(href='#').btn.outline.forWhom__btn(data-aos="fade" data-aos-delay="200")
+              span.text Go to community →
     // ADVANTAGES SECTION
     section#advantages 
       .container 
         .advantages__inner
           h2.advantages__title(data-aos="fade" data-aos-delay="200") Преимущества
           .advantages__content--desktop
-            ul.advantages__list(data-aos="fade-up" data-aos-delay="400")
+            ul.advantages__list
               each item, index in advantagesItems
                 +advantagesItem(item, index)
           .advantages__content--mobile
-            .advanges__swiper.swiper(data-aos="fade-up" data-aos-delay="400")
+            .advanges__swiper.swiper
               .swiper-wrapper
                 each item, index in advantagesItems
                   .swiper-slide
@@ -120,17 +123,17 @@ append content
       .container.offers__container
         .offers__inner 
           h2.offers__title(data-aos="fade" data-aos-delay="200") Investment proposals
-          ul.offers__list(data-aos="fade-up" data-aos-delay="400")
+          ul.offers__list
             each item, index in offersItems
-              li.offers-item(class= index==0 && 'first')(class= index==1 && 'second')(class= index==2 && 'third')
+              li.offers-item(class= index==0 && 'first')(class= index==1 && 'second')(class= index==2 && 'third')(data-aos="fade-up" data-aos-delay="300" * index)
                 +rectangle2.offers-item__bg.offers-item__bg--desktop
                 +rectangle2Mobile.offers-item__bg.offers-item__bg--mobile
                 if index==0
-                  +image('offers/offers-shadow-1.png').offers-item__shadow
+                  +image('offers/offers-shadow-1.png', 'offers-shadow-1').offers-item__shadow
                 else if index==1 
-                  +image('offers/offers-shadow-2.png').offers-item__shadow
+                  +image('offers/offers-shadow-2.png', 'offers-shadow-1').offers-item__shadow
                 else
-                  +image('offers/offers-shadow-3.png').offers-item__shadow
+                  +image('offers/offers-shadow-3.png', 'offers-shadow-1').offers-item__shadow
                 .offers-item__header 
                   span.offers-item__subtext Proposal
                   span.offers-item__lvl= item.lvl
@@ -153,3 +156,22 @@ append content
           .offers__btn--wrapper(data-aos="fade" data-aos-delay="200")
             a(href='#').btn.outline.offers__btn
               span.text Go to Bot →
+    // PROFITABILITY SECTION
+    section#profitability 
+      .container
+        .profitability__inner 
+          h4.profitability__title Our profitability
+          .profitability__body
+            h4.profitability__body-title(data-aos="fade-right" data-aos-delay="200")
+              div Octo.Trade.AI charges a commission of
+              div.text-green 5% from every profitable trade.
+            +loadingGray.profitability__body-loading(data-aos="clip-right" data-aos-delay="1200" data-aos-duration="3000")
+            +image("octopus.png", 'octopus-img').profitability__body-octopus(data-aos="fade-up" data-aos-delay="400")
+            div.profitability__body-text(data-aos="fade-left" data-aos-delay="600")
+              p This commission is used to ensure the continued operation and development of the platform.
+              p It includes support for technical infrastructure, improvement of trading algorithms and development of new functions, and also contributes to the development of the project
+            +loadingGreen.profitability__body-loading(data-aos="clip-right" data-aos-delay="1200" data-aos-duration="3000")
+            +image("octotrade-desk.png", 'octotrade-img').profitability__body-octotrade.profitability__body-octotrade--desktop
+            +image("octotrade-mob.png", 'octotrade-img').profitability__body-octotrade.profitability__body-octotrade--mobile
+            +profitabilityLine.profitability__body-line.profitability__body-line--left
+            +profitabilityLine.profitability__body-line.profitability__body-line--right

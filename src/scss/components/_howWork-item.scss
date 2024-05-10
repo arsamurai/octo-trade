@@ -3,7 +3,7 @@
   display: flex;
   justify-content: flex-start;
   margin-bottom: 53px;
-  
+
   &.en-item {
     margin-bottom: 84px;
   }
@@ -15,6 +15,7 @@
   &__num {
     word-break: normal;
     margin-left: 10px;
+    transition: $transition;
   }
 
   &__title {
@@ -22,6 +23,7 @@
     width: 100%;
     margin-bottom: 8px;
     word-break: normal;
+    transition: $transition;
   }
 
   &__text {
@@ -33,8 +35,26 @@
   .arrow {
     order: -1;
 
+    path {
+      transition: $transition;
+    }
+
     svg {
       transform: rotate(180deg);
+    }
+  }
+
+  &.green-gradient {
+    .howWork-item__title {
+      background: linear-gradient(275.59deg, #ffffff 50.23%, #67f38f 113.45%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .howWork-item__num {
+      color: $green;
+    }
+    .arrow svg path {
+      fill: $green;
     }
   }
 
@@ -72,7 +92,7 @@
   @include tablet {
     margin-bottom: 100px;
 
-		.arrow {
+    .arrow {
       margin-top: 7px;
     }
   }
@@ -141,9 +161,18 @@
     &.third {
       margin-top: -45px;
     }
-    
+
     &.en-item.third {
       margin-top: 35px;
+    }
+
+    &.green-gradient {
+      .arrow svg path {
+        fill: $white;
+      }
+      &.even .arrow svg path {
+        fill: $green;
+      }
     }
   }
 }

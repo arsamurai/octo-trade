@@ -1,5 +1,8 @@
 mixin menu(links)
   nav.menu&attributes(attributes)
     ul.menu__list
-      each link in links
+      each link, index in links
         li.menu__list-item(data-scroll-to=link.href)= link.title
+        li.menu__list-item--mobile(data-scroll-to=link.href)
+          span.menu__list-item__num (#{index < 9 ? '0' + (index + 1) : (index + 1)})
+          span.menu__list-item__link=link.title

@@ -1,5 +1,5 @@
-mixin aboutItem(item)
-	li.about-item
+mixin aboutItem(item, index)
+	li.about-item(data-aos="fade-left" data-aos-delay="200" * index)
 		.about-item__body
 			h5.about-item__num= item.number
 			p.about-item__text= item.text 

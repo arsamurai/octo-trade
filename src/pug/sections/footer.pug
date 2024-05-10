@@ -1,1 +1,19 @@
-footer#footer
+-
+	var privacy = page == 'ru' ? "Политика конфидициальности" : "Privacy"
+	var telegram_community = page == 'ru' ? "Tелеграм комьюнити" : "Telegram community"
+	var telegram_bot = page == 'ru' ? "Tорговый бот" : "Trading bot"
+
+footer#footer 
+	.container
+		.footer__inner 
+			.footer__logo 
+				+logo
+				+logoTitle
+			a(href="#").footer__privacy= privacy
+			.footer__links 
+				a(href="#").footer__link.footer__link-community
+					+telegram
+					span= telegram_community
+				a(href="#").footer__link.footer__link-bot
+					+telegram
+					span= telegram_bot

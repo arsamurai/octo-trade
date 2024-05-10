@@ -1,5 +1,5 @@
 mixin advantagesItem(item, index)
-	li.advantages-item(class= index==0 && 'first')(class= index==2 && 'third')
+	li.advantages-item(class= index==0 && 'first')(class= index==2 && 'third')(data-aos="fade-up" data-aos-delay="300" * index)
 		+rectangle1Mobile.advantages-item__bg.advantages-item__bg--mobile
 		+rectangle1.advantages-item__bg.advantages-item__bg--desktop
 		span.advantages-item__num= item.number

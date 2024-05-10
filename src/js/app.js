@@ -1,6 +1,7 @@
 import AOS from './libs/aos';
 import aosConfig from './modules/aosConfig';
 import swipers from './modules/swiper';
+import isElementInViewport from './helpers/isElementInViewport';
 
 addEventListener('load', async () => {
   // AOS
@@ -47,5 +48,18 @@ addEventListener('load', async () => {
 
   // Swipers
   swipers.advantagesSwiper();
+});
+
+addEventListener('scroll', () => {
+  // Highlight title
+  const titles = document.querySelectorAll('[data-howWorkItem-title]');
+
+  titles.forEach((title) => {
+    if (isElementInViewport(title)) {
+      title.classList.add('green-gradient');
+    } else {
+      title.classList.remove('green-gradient');
+    }
+  });
 
 });
