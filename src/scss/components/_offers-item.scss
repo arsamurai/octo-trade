@@ -78,6 +78,14 @@
     z-index: -2;
   }
 
+  &__circle path.animate {
+    opacity: 1;
+  }
+
+  &__percent-value {
+    display: inline-block;
+  }
+
   &.second {
     .offers-item__lvl,
     .offers-item__percent-value,

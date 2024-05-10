@@ -39,9 +39,9 @@ block vars
       {number: '04', title: 'Вам не нужно быть трейдером', text: 'Вам всего лишь нужен телеграм для того, чтобы начать. Не потребуется много часов для изучения технических материалов по трейдингу.', img: 'advantages/advantages-4.png'},
     ]
     var offersItems = [
-      {lvl: '01 LVL', percent: '20%', deposit: 'от 100 $'},
-      {lvl: '02 LVL', percent: '35%', deposit: 'от 500 $'},
-      {lvl: '03 LVL', percent: '55%', deposit: 'от 1000 $'}
+      {lvl: '01 LVL', percent: 20, deposit: 'от 100 $'},
+      {lvl: '02 LVL', percent: 35, deposit: 'от 500 $'},
+      {lvl: '03 LVL', percent: 55, deposit: 'от 1000 $'}
     ]
 
 append content
@@ -139,16 +139,18 @@ append content
                   span.offers-item__lvl= item.lvl
                 .offers-item__profitability
                   if index==0
-                    +offersCircle1
+                    +offersCircle1.offers-item__circle
                   else if index==1 
-                    +offersCircle2
+                    +offersCircle2.offers-item__circle
                   else
-                    +offersCircle3
+                    +offersCircle3.offers-item__circle
                   .offers-item__profitability-info
                     .offers-item__subtext Доходность
                     .offers-item__percent
                       span.offers-item__subtext до
-                      span.offers-item__percent-value= item.percent
+                      div.offers-item__percent-value
+                        span(data-offers-percent)= item.percent
+                        span %
                       span.offers-item__subtext /день
                 .offers-item__deposit
                   p.offers-item__subtext Депозит
@@ -165,12 +167,12 @@ append content
             h4.profitability__body-title(data-aos="fade-right" data-aos-delay="200")
               div Octo.Trade.AI  взымает комиссию в размере
               div.text-green 5% от каждой прибыльной сделки.
-            +loadingGray.profitability__body-loading(data-aos="clip-right" data-aos-delay="1200" data-aos-duration="3000")
+            +loadingGray.profitability__body-loading
             +image("octopus.png", 'octopus-img').profitability__body-octopus(data-aos="fade-up" data-aos-delay="400")
             div.profitability__body-text(data-aos="fade-left" data-aos-delay="600")
               p Эта комиссия используется для обеспечения непрерывной работы и развития платформы. 
               p Она включает в себя поддержку технической инфраструктуры, улучшение алгоритмов торговли и разработку новых функций, а так же способствует развитию проекта
-            +loadingGreen.profitability__body-loading(data-aos="clip-right" data-aos-delay="1200"  data-aos-duration="3000")
+            +loadingGreen.profitability__body-loading
             +image("octotrade-desk.png", 'octotrade-img').profitability__body-octotrade.profitability__body-octotrade--desktop
             +image("octotrade-mob.png", 'octotrade-img').profitability__body-octotrade.profitability__body-octotrade--mobile
             +profitabilityLine.profitability__body-line.profitability__body-line--left

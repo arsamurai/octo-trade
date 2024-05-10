@@ -47,5 +47,7 @@
     "IE 10"
   ],
   "bin": "./bin/cli.js",
-  "dependencies": {}
+  "dependencies": {
+    "countup.js": "^2.8.0"
+  }
 }
