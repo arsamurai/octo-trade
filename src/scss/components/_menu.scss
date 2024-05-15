@@ -61,6 +61,7 @@
       width: 100%;
       flex-direction: row;
       justify-content: space-between;
+      transform: translateY(0);
     }
     &__list-item--mobile {
       display: none;
