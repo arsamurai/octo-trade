@@ -6,7 +6,7 @@
   background-color: $black;
   width: 100%;
   height: calc(100vh - 90.5px);
-	padding: 10px;
+  padding: 10px;
   top: 90.5px;
   right: 0;
   bottom: 0;
@@ -18,9 +18,10 @@
   &__list {
     display: flex;
     flex-direction: column;
+    transform: translateY(-20px);
   }
   &__list-item--mobile {
-		width: calc(100vw - 20px);
+    width: calc(100vw - 20px);
     padding: 29px 0;
     @include flex(flex-start, flex-start);
     border-bottom: 1px solid rgba(255, 255, 255, 0.22);
@@ -29,10 +30,10 @@
     color: $green;
     font-size: 10px;
     line-height: 14px;
-		word-break: normal;
+    word-break: normal;
   }
   &__list-item__link {
-		font-family: $BenzinRegular, sans-serif;
+    font-family: $BenzinRegular, sans-serif;
     font-size: 20px;
     line-height: 27.58px;
     margin-left: 12px;
@@ -44,11 +45,11 @@
     margin-top: 48px;
   }
 
-	@include tablet {
-		&__list-item--mobile {
-			width: 60vw;
-		}
-	}
+  @include tablet {
+    &__list-item--mobile {
+      width: 60vw;
+    }
+  }
 
   @include desktop {
     height: auto;
